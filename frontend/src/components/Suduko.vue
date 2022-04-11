@@ -31,7 +31,7 @@ export default {
   ,
   data() {
     return {
-      autoValidate: true,
+      autoValidate: false,
       chosenNumbersList: [],
       prefilledBoard: [],
 
