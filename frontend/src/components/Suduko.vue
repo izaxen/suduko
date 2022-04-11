@@ -34,7 +34,7 @@ export default {
       autoValidate: true,
       chosenNumbersList: [],
       prefilledBoard: [],
-      apiUrl: "/api"
+
     };
   },
   mounted() {
@@ -71,7 +71,7 @@ export default {
       const newLevel = new URLSearchParams();
       newLevel.append("level", level);
       this.prefilledBoard = await (
-        await fetch(`${this.apiUrl}/rest/getNewBoard?${newLevel}`)
+        await fetch(`/rest/getNewBoard?${newLevel}`)
       ).json();
     },
 
@@ -108,7 +108,7 @@ export default {
 
     async validateNumbers() {
       const validatedInput = await (
-        await fetch(`${this.apiUrl}/rest/validateInput`, {
+        await fetch(`/rest/validateInput`, {
           method: "POST",
           body: JSON.stringify(this.chosenNumbersList),
         })
@@ -132,7 +132,7 @@ export default {
     },
 
     async solveSuduko() {
-      this.prefilledBoard = await (await fetch(`${this.apiUrl}/rest/getFullBoard`)).json();
+      this.prefilledBoard = await (await fetch(`/rest/getFullBoard`)).json();
     },
 
     clearColor(event) {
