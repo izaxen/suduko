@@ -13,11 +13,12 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/': 'http://localhost:8080', // same port as backend,
-      changeOrigin: true,
-      secure: false,
-      ws: true,
-
+      '/': {
+        target: 'http://localhost:8080', // same port as backend,
+        changeOrigin: true,
+        secure: false,
+        ws: true,
+      }
     }
   }
 })

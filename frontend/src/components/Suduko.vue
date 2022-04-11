@@ -12,10 +12,6 @@
       </div>
     </div>
     <div class="btn-under">
-      <div class="checkbox-autovalidate">
-        <label for="checkbox">Autovalidate</label>
-        <input type="checkbox" id="checkbox" v-model="autoValidate" />
-      </div>
       <div class="show-validate-btn" v-if="!autoValidateBtn">
         <button @click="validateNumbers">Validate input</button>
       </div>
@@ -34,7 +30,6 @@ export default {
       autoValidate: false,
       chosenNumbersList: [],
       prefilledBoard: [],
-
     };
   },
   mounted() {
