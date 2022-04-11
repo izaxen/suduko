@@ -18,15 +18,15 @@ public class SudukoController {
     }
 
     public void sudukoControllers() {
-        app.get("api/getNewBoard", ctx -> {
+        app.get("/getNewBoard", ctx -> {
             ctx.status(200).json(sudukoLogic.createNewBoard(Objects.requireNonNull(ctx.queryParam("level"))));
         });
 
-        app.get("api/getFullBoard", ctx -> {
+        app.get("/getFullBoard", ctx -> {
             ctx.status(200).json(sudukoLogic.getFullSudokuBoard());
         });
 
-        app.post("api/validateInput", ctx -> {
+        app.post("/validateInput", ctx -> {
             ctx.status(200).json(sudukoLogic.validateInputCells(ctx.body()));
 
         });
