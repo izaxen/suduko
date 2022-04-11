@@ -13,7 +13,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': 'https://localhost:8080', // same port as backend,
+      '/': 'https://localhost:8080', // same port as backend,
       changeOrigin: true,
       secure: false,
       ws: true,
