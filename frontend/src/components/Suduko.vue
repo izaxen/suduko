@@ -127,7 +127,7 @@ export default {
     },
 
     async solveSuduko() {
-      this.prefilledBoard = await (await fetch(`/rest/getFullBoard`)).json();
+      this.prefilledBoard = await (await fetch(`/rest/solveBoard`)).json();
     },
 
     clearColor(event) {
