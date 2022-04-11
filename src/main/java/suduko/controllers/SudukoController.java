@@ -18,7 +18,7 @@ public class SudukoController {
     }
 
     public void sudukoControllers() {
-        app.get("/getNewBoard", ctx -> {
+        app.get("/api/getNewBoard", ctx -> {
             ctx.status(200).json(sudukoLogic.createNewBoard(Objects.requireNonNull(ctx.queryParam("level"))));
         });
 

@@ -71,7 +71,7 @@ export default {
       const newLevel = new URLSearchParams();
       newLevel.append("level", level);
       this.prefilledBoard = await (
-        await fetch(`${this.apiUrl}/getNewBoard?${newLevel}`)
+        await fetch(`${this.apiUrl}/api/getNewBoard?${newLevel}`)
       ).json();
     },
 

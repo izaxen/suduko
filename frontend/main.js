@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.static('dist'));
 
-app.use('/api', proxy('http://localhost:8080'));
+app.use('/', proxy('http://localhost:8080'));
 
 app.get('*',(req, res) => {
     res.sendFile(path.join(__dirname,'dist','index.html'));
