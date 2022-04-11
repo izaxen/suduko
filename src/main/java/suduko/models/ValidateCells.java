@@ -14,6 +14,12 @@ public class ValidateCells {
         this.correctNumber = correctNumber;
     }
 
+    public ValidateCells(int xPosition, int yPosition, int numberToValidate) {
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
+        this.numberToValidate = numberToValidate;
+    }
+
     public int getxPosition() {
         return xPosition;
     }
