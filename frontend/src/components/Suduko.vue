@@ -5,17 +5,8 @@
         <div class="suduko-boxes" v-for="(item, indexCol) in rows" :key="item">
           <div v-if="item !== 0">{{ item }}</div>
           <div v-else>
-            <input
-              class="input-box"
-              :id="indexRow + ',' + indexCol"
-              type="text"
-              min="1"
-              max="9"
-              maxlength="1"
-              @keyup.stop="checkBox($event.target)"
-              @click="clearColor($event.target)"
-              value
-            />
+            <input class="input-box" :id="indexRow + ',' + indexCol" type="text" min="1" max="9" maxlength="1"
+              @keyup.stop="checkBox($event.target)" @click="clearColor($event.target)" value />
           </div>
         </div>
       </div>
@@ -80,7 +71,7 @@ export default {
       const newLevel = new URLSearchParams();
       newLevel.append("level", level);
       this.prefilledBoard = await (
-        await fetch(`${this.apiUrl}/rest/getNewBoard?${newLevel}`)
+        await fetch(`${this.apiUrl}/getNewBoard?${newLevel}`)
       ).json();
     },
 
@@ -117,7 +108,7 @@ export default {
 
     async validateNumbers() {
       const validatedInput = await (
-        await fetch(`${this.apiUrl}/rest/validateInput`, {
+        await fetch(`${this.apiUrl}/validateInput`, {
           method: "POST",
           body: JSON.stringify(this.chosenNumbersList),
         })
@@ -141,7 +132,7 @@ export default {
     },
 
     async solveSuduko() {
-      this.prefilledBoard = await (await fetch(`${this.apiUrl}/rest/getFullBoard`)).json();
+      this.prefilledBoard = await (await fetch(`${this.apiUrl}/getFullBoard`)).json();
     },
 
     clearColor(event) {
@@ -161,12 +152,14 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .suduko-rows {
   display: grid;
   grid-template-columns: repeat(9, minmax(50px, 50px));
   grid-auto-flow: row;
   text-align: center;
 }
+
 .suduko-board {
   align-self: center;
   display: grid;
@@ -174,6 +167,7 @@ export default {
   border-top: 2px solid black;
   border-left: 2px solid black;
 }
+
 .suduko-boxes {
   display: flex;
   justify-content: center;
@@ -183,6 +177,7 @@ export default {
   font-size: 150%;
   border: 1px solid rgb(169, 169, 169);
 }
+
 .input-box {
   width: 100%;
   border: 0;
@@ -193,6 +188,7 @@ export default {
   line-height: 195%;
   text-align: center;
 }
+
 .btn-under {
   margin: 60px;
   display: flex;
@@ -200,15 +196,19 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 .checkbox-autovalidate {
   margin: 20px;
 }
+
 .show-validate-btn {
   margin: 0 20px 20px 20px;
 }
+
 .suduko-boxes:nth-child(3n + 3) {
   border-right: 2px solid black;
 }
+
 .suduko-rows:nth-child(3n + 3) {
   border-bottom: 2px solid rgb(0, 0, 0);
 }
